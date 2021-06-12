@@ -1,0 +1,175 @@
+[bar/bar1]
+modules-right=cpu memory date
+modules-left=user custombattery i3
+modules-center=player-mpris-tail goback playpause fast-forward
+
+font-0 = siji:pixelsize=10;1
+font-1 = FontAwesome:size=10;1
+
+line-size = 3
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 2
+module-margin-right = 2
+
+scroll-up = "#i3.prev"
+scroll-down = "#i3.next"
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-underline = #f90000
+label = " CPU: %percentage%% "
+
+[module/memory]
+type = internal/memory
+interval = 2    
+format-underline = #4bffdc
+label = " Memory: %percentage_used%% "
+
+[module/date]
+type = internal/date
+interval = 0.5
+
+date = "%m-%d-%Y"
+
+time = %H:%M:%S
+
+format-underline = #0a6cf5
+
+label = " %date% %time% "
+
+[module/user]
+type = custom/text
+content = " User: mu@penguin "
+
+content-underline = #ffffff
+
+[module/i3]
+type = internal/i3
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = true
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = true
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = true
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = true
+
+; Set the scroll cycle direction 
+; Default: true
+reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused = %index%
+label-focused-foreground = #ffffff
+label-focused-background = #3f3f3f
+label-focused-underline = #fba922
+label-focused-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %index%
+label-unfocused-padding = 2
+label-unfocused-underline = #800080
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %index%
+label-visible-underline = #555555
+label-visible-padding = 2
+
+; Separator in between workspaces
+label-separator = ||
+label-separator-padding = 1
+label-separator-foreground = #ffb52a
+
+; Follow these instructions to install/configure battery module https://github.com/realSaddy/chromeos-battery-sync
+; Note - for the last step, the "polybar support" step, put the script in the .scripts directory that is mentioned, in the /home/[User]/scripts directory
+
+[module/custombattery]
+type = custom/script
+exec = bash /home/mu/scripts/polybar_battery.sh
+tail = true
+label = " %output% "
+format-underline = #268bd2
+
+; Follow these instructions to install/configure mpris-tail https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/player-mpris-tail
+; Put the .py script included in the repository, in the /home/[User]/scripts directory
+; You will need to run the command "chmod +x /home/[User]/scripts/player-mpris-tail.py" every time you make a change to the file
+; In the player-mpris-tail.py file, you can change the icons at the "parser.add_argument" lines. Use the font-awesome cheat sheet to do so (in "HOW TO GET ICONS WORKING WITH POLYBAR")
+
+[module/player-mpris-tail]
+type = custom/script
+exec = ~/scripts/player-mpris-tail.py -b 'firefox-esr' -f '{:t40:{artist} - {title} - {album}:}'
+tail = true
+label = " %output% "
+format-underline = #ffffff
+click-left = ~/scripts/player-mpris-tail.py -b 'firefox-esr' play-pause &
+
+[module/fast-forward]
+type = custom/script
+exec = ~/scripts/player-mpris-tail.py -b 'firefox-esr' -f ''
+tail = true
+label = "%output%"
+format-padding=1
+click-left = ~/scripts/player-mpris-tail.py -b 'firefox-esr' next &
+
+[module/goback]
+type = custom/script
+exec = ~/scripts/player-mpris-tail.py -b 'firefox-esr' -f ''
+tail = true
+label = "%output%"
+format-padding=1
+click-left = ~/scripts/player-mpris-tail.py -b 'firefox-esr' previous &
+
+[module/playpause]
+type = custom/script
+exec = ~/scripts/player-mpris-tail.py -b 'firefox-esr' -f '{icon}'
+tail = true
+label = "%output%"
+format-padding=1
+click-left = ~/scripts/player-mpris-tail.py -b 'firefox-esr' play-pause &
