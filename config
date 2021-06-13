@@ -3,10 +3,10 @@ modules-right=cpu memory date
 modules-left=user custombattery i3
 modules-center=player-mpris-tail goback playpause fast-forward
 
-font-0 = siji:pixelsize=12;1
-font-1 = FontAwesome:size=12;1
-font-2 = IPAMincho,IPA明:size=12;1
-font-3 = AR PL UMing TW:size=12;1
+font-0 = siji:pixelsize=10;1
+font-1 = FontAwesome:size=10;1
+font-2 = IPAMincho,IPA明:size=11;0
+font-3 = AR PL UMing TW:size=11;0
 
 line-size = 3
 
