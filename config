@@ -132,7 +132,7 @@ label-separator-foreground = #ffb52a
 
 [module/custombattery]
 type = custom/script
-exec = bash /home/mu/scripts/polybar_battery.sh
+exec = bash ~/scripts/polybar_battery.sh
 tail = true
 label = " %output% "
 format-underline = #268bd2
