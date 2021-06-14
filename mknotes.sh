@@ -139,8 +139,8 @@ then
     cd /home/mu/latex.files/sandboxes
     mkdir "$notefolder"
     cd "$notefolder"
-    touch "$notename.tex"
-    atom "$notename.tex"
+    touch "$notefolder.tex"
+    atom "$notefolder.tex"
 fi
 
 ############################################################
