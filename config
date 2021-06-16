@@ -44,10 +44,10 @@ format-underline = #0a6cf5
 label = " %date% %time% "
 
 [module/user]
-type = custom/text
-content = " User: mu@penguin "
-
-content-underline = #ffffff
+type = custom/script
+exec = bash ~/scripts/whoami.sh
+label = " User: %output%@penguin "
+format-underline = #ffffff
 
 [module/i3]
 type = internal/i3
