@@ -1,28 +1,28 @@
 #!/bin/bash
 
-if [ ! -d "/home/mu/latex.files/notes/biology.notes" ]
+if [ ! -d "~/latex.files/notes/biology.notes" ]
 then
-mkdir -p /home/mu/latex.files/notes/biology.notes
+mkdir -p ~/latex.files/notes/biology.notes
 fi
 
-if [ ! -d "/home/mu/latex.files/notes/math.notes" ]
+if [ ! -d "~/latex.files/notes/math.notes" ]
 then
-mkdir -p /home/mu/latex.files/notes/math.notes
+mkdir -p ~/latex.files/notes/math.notes
 fi
 
-if [ ! -d "/home/mu/latex.files/notes/sstudies.notes" ]
+if [ ! -d "~/latex.files/notes/sstudies.notes" ]
 then
-mkdir -p /home/mu/latex.files/notes/sstudies.notes
+mkdir -p ~/latex.files/notes/sstudies.notes
 fi
 
-if [ ! -d "/home/mu/latex.files/sandboxes" ]
+if [ ! -d "~/latex.files/sandboxes" ]
 then
-mkdir -p /home/mu/latex.files/sandboxes
+mkdir -p ~/latex.files/sandboxes
 fi
 
-if [ ! -d "/home/mu/latex.files/projects" ]
+if [ ! -d "~/latex.files/projects" ]
 then
-mkdir -p /home/mu/latex.files/projects
+mkdir -p ~/latex.files/projects
 fi
 
 ############################################################
@@ -37,7 +37,7 @@ if [ "$destination" == "biology" ];
 then
 echo "note folder name?"
 read notefolder
-cd /home/mu/latex.files/notes/biology.notes
+cd ~/latex.files/notes/biology.notes
 preceding=$(echo $notefolder | awk -F "--date" '{print $1}')
 succeeding=$(echo $notefolder | awk -F "--date" '{print $2}')
 if [[ "$notefolder" == *"--date"* ]]
@@ -70,7 +70,7 @@ if [ "$destination" == "math" ];
 then
 echo "note folder name?"
 read notefolder
-cd /home/mu/latex.files/notes/math.notes
+cd ~/latex.files/notes/math.notes
 preceding=$(echo $notefolder | awk -F "--date" '{print $1}')
 succeeding=$(echo $notefolder | awk -F "--date" '{print $2}')
 if [[ "$notefolder" == *"--date"* ]]
@@ -103,7 +103,7 @@ if [ "$destination" == "sstudies" ];
 then
 echo "note folder name?"
 read notefolder
-cd /home/mu/latex.files/notes/sstudies.notes
+cd ~/latex.files/notes/sstudies.notes
 preceding=$(echo $notefolder | awk -F "--date" '{print $1}')
 succeeding=$(echo $notefolder | awk -F "--date" '{print $2}')
 if [[ "$notefolder" == *"--date"* ]]
@@ -136,7 +136,7 @@ if [ "$destination" == "sandboxes" ];
 then
     echo "note folder+note name?"
     read notefolder
-    cd /home/mu/latex.files/sandboxes
+    cd ~/latex.files/sandboxes
     mkdir "$notefolder"
     cd "$notefolder"
     touch "$notefolder.tex"
@@ -149,7 +149,7 @@ if [ "$destination" == "projects" ];
 then
 echo "note folder name?"
 read notefolder
-cd /home/mu/latex.files/projects
+cd ~/latex.files/projects
 preceding=$(echo $notefolder | awk -F "--date" '{print $1}')
 succeeding=$(echo $notefolder | awk -F "--date" '{print $2}')
 if [[ "$notefolder" == *"--date"* ]]
