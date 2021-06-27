@@ -126,7 +126,7 @@ $0
     'body': """
 
     \\\\begin{enumerate}
-    \\\\item $0
+    \\\\vspace{-0.2cm}\\\\item $0
     \\\\end{enumerate}
 """
   'Bulleted List':
@@ -134,7 +134,7 @@ $0
     'body': """
 
     \\\\begin{itemize}
-    \\\\item $0
+    \\\\vspace{-0.2cm}\\\\item $0
     \\\\end{itemize}
 """
   'New item (numbered and bullet lists)':
