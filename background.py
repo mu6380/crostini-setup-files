@@ -4,6 +4,10 @@ import getpass
 import sys
 path=os.path.expanduser("~/background.images")
 
+try:
+    c_background=open(os.path.expanduser("~/scripts/.current_background"), 'x')
+except:
+    pass
 c_background=open(os.path.expanduser("~/scripts/.current_background"), 'r+')
 sys.argv.pop(0)
 mode=sys.argv[0]
