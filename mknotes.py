@@ -47,6 +47,7 @@ if subject_dictionary[subject][1] == "normal":
     notefolder=home+subject_dictionary[subject][0]+'/'+foldername
     os.makedirs(notefolder)
     open(notefolder+"/"+notename+extension, 'x')
+    os.system("atom "+'"'+notefolder+"/"+notename+extension+'"')
 
     print("Made directory: "+notefolder)
     print("Made note: "+notename+extension)
@@ -59,6 +60,7 @@ if subject_dictionary[subject][1] == "other":
     notefolder=home+subject_dictionary[subject][0]+'/'+note_and_folder_name
     os.makedirs(notefolder)
     open(notefolder+"/"+note_and_folder_name+extension, 'x')
+    os.system('atom '+'"'+notefolder+"/"+note_and_folder_name+extension+'"')
 
     print("Made directory: "+notefolder)
     print("Made note: "+note_and_folder_name+extension)
